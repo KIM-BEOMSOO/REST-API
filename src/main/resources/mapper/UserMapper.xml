@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.self.sample.mapper.UserMapper">
+    <!-- id에 해당하는 메서드와 SQL 쿼리를 매핑 -->
+    <!--정보 삽입-->
+    <insert id="insertUser" parameterType="com.self.sample.domain.User">
+        INSERT INTO test_user (name, age, hobby)
+        VALUES (#{name}, #{age}, #{hobby})
+    </insert>
+
+    <!--정보 검색-->
+    <select id="selectUser" resultType="com.self.sample.domain.User">
+        SELECT *
+        FROM test_user
+    </select>
+
+    <!--정보 삭제-->
+    <delete id="deleteUser" parameterType="int">
+        DELETE
+        FROM test_user
+        WHERE id = #{id};
+    </delete>
+
+    <!--상세정보 검색-->
+    <select id="selectUserInfo" resultType="com.self.sample.domain.User">
+        SELECT *
+        FROM test_user
+        WHERE id = #{id}
+    </select>
+</mapper>
